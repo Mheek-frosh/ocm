@@ -39,7 +39,7 @@ export default function SignInPage() {
   };
 
   return (
-    <AuthLayout title="Welcome back" subtitle="Sign in to your STRATOS workspace">
+    <AuthLayout title="Welcome back" subtitle="Sign in to your Optima Construct workspace">
       <form onSubmit={handleSubmit} className={styles.form} noValidate>
         {/* Email */}
         <motion.div custom={0} variants={fieldVariants} initial="hidden" animate="visible" className={styles.fieldGroup}>
@@ -92,7 +92,7 @@ export default function SignInPage() {
         {/* Divider */}
         <motion.div custom={3} variants={fieldVariants} initial="hidden" animate="visible" className={styles.divider}>
           <span />
-          <p>New to STRATOS?</p>
+          <p>New to Optima Construct?</p>
           <span />
         </motion.div>
 

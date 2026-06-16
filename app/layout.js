@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'STRATOS — Construction Intelligence',
+  title: 'Optima Construct — Construction Intelligence',
   description: 'AI-powered construction intelligence platform for executive decision making.',
 };
 

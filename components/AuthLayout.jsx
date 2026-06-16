@@ -33,7 +33,7 @@ export default function AuthLayout({ children, title, subtitle }) {
             </svg>
           </div>
           <div>
-            <div className={styles.logoName}>STRATOS</div>
+            <div className={styles.logoName}>Optima Construct</div>
             <div className={styles.logoSub}>Construction Intelligence</div>
           </div>
         </motion.div>

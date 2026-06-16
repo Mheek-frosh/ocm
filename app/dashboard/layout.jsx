@@ -3,8 +3,8 @@ import Sidebar from '@/components/Sidebar';
 import TopNav from '@/components/TopNav';
 
 export const metadata = {
-  title: 'Dashboard — STRATOS',
-  description: 'STRATOS Construction Intelligence Dashboard',
+  title: 'Dashboard — Optima Construct',
+  description: 'Optima Construct Construction Intelligence Dashboard',
 };
 
 export default function DashboardLayout({ children }) {

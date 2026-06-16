@@ -72,13 +72,13 @@ export default function SignUpPage() {
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       >
         <CheckCircle2 size={64} color="#22c55e" />
-        <p className={su.successText}>Welcome to STRATOS, {form.name.split(' ')[0]}!</p>
+        <p className={su.successText}>Welcome to Optima Construct, {form.name.split(' ')[0]}!</p>
       </motion.div>
     </AuthLayout>
   );
 
   return (
-    <AuthLayout title="Create your account" subtitle="Join STRATOS and command your projects with intelligence">
+    <AuthLayout title="Create your account" subtitle="Join Optima Construct and command your projects with intelligence">
       <form onSubmit={handleSubmit} className={styles.form} noValidate>
         {/* Full Name */}
         <motion.div custom={0} variants={fieldVariants} initial="hidden" animate="visible" className={styles.fieldGroup}>
