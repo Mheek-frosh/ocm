@@ -1,0 +1,142 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all var(--transition);
+}
+.card:hover {
+  border-color: var(--border-light);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.sparkle { color: var(--blue); animation: pulse-orange 2s infinite; }
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Alerts */
+.alert {
+  padding: 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.alert:last-child { margin-bottom: 0; }
+
+.alertLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.alertDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.alertText {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Decision Queue */
+.queueCard {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.queueIcon {
+  color: var(--orange);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.queueText {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.queueActions {
+  display: flex;
+  gap: 8px;
+}
+
+.btnApprove {
+  flex: 1;
+  height: 36px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all var(--transition);
+}
+.btnApprove:hover:not(:disabled) {
+  background: #0070d9;
+  box-shadow: 0 4px 16px rgba(0,135,255,0.3);
+}
+.btnApprove:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.btnReview {
+  flex: 1;
+  height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.btnReview:hover {
+  background: rgba(255,255,255,0.09);
+  color: var(--text-primary);
+}
+
+.spin { animation: spin-slow 0.8s linear infinite; }
+
+.approvedState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 700;
+}
