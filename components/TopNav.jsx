@@ -1,13 +1,25 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Bell, User, Sparkles, X } from 'lucide-react';
+import { Search, Bell, User, Sparkles, X, Bot } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import styles from './TopNav.module.css';
 
-export default function TopNav({ title = 'Executive Command' }) {
+export default function TopNav() {
+  const pathname = usePathname();
   const [searchFocused, setSearchFocused] = useState(false);
   const [searchVal, setSearchVal] = useState('');
   const [showNotif, setShowNotif] = useState(false);
+
+  // Determine title and placeholder based on route
+  let title = 'Executive Dashboard';
+  let searchPlaceholder = 'Search projects, clients, KPIs…';
+
+  if (pathname?.startsWith('/dashboard/cost')) {
+    searchPlaceholder = 'Search Cost Codes...';
+  } else if (pathname?.startsWith('/dashboard/clients')) {
+    searchPlaceholder = 'Search Clients...';
+  }
 
   const notifications = [
     { id: 1, color: 'orange', title: 'Critical Delay Predicted', desc: 'Eastgate steel delivery likely delayed by 14 days.', time: '2m ago' },
@@ -22,21 +34,16 @@ export default function TopNav({ title = 'Executive Command' }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
     >
-      {/* Left: title */}
-      <div className={styles.left}>
-        <h1 className={styles.title}>{title}</h1>
-      </div>
-
-      {/* Center: Search bar */}
+      {/* Left: Wide search bar */}
       <motion.div
         className={`${styles.searchWrap} ${searchFocused ? styles.searchFocused : ''}`}
-        animate={{ width: searchFocused ? '420px' : '340px' }}
+        animate={{ width: searchFocused ? '460px' : '380px' }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
       >
         <Search size={16} className={styles.searchIcon} />
         <input
           type="text"
-          placeholder="Search projects, clients, KPIs…"
+          placeholder={searchPlaceholder}
           className={styles.searchInput}
           value={searchVal}
           onChange={e => setSearchVal(e.target.value)}
@@ -58,8 +65,21 @@ export default function TopNav({ title = 'Executive Command' }) {
         </AnimatePresence>
       </motion.div>
 
-      {/* Right: actions */}
+      {/* Right: Title description + divider + action icons */}
       <div className={styles.actions}>
+        <span className={styles.contextTitle}>{title}</span>
+        <span className={styles.divider} />
+
+        {/* AI Assistant (Robot) */}
+        <motion.button
+          className={styles.iconBtn}
+          whileHover={{ scale: 1.08, color: 'var(--blue)', borderColor: 'var(--blue-glow)' }}
+          whileTap={{ scale: 0.95 }}
+          title="Ask AI"
+        >
+          <Bot size={18} />
+        </motion.button>
+
         {/* Notifications */}
         <div className={styles.notifWrap}>
           <motion.button
@@ -115,16 +135,6 @@ export default function TopNav({ title = 'Executive Command' }) {
           whileTap={{ scale: 0.95 }}
         >
           <User size={18} />
-        </motion.button>
-
-        {/* Ask AI */}
-        <motion.button
-          className={styles.askAi}
-          whileHover={{ scale: 1.03, boxShadow: '0 0 24px rgba(0,135,255,0.5)' }}
-          whileTap={{ scale: 0.97 }}
-        >
-          <Sparkles size={15} />
-          Ask AI
         </motion.button>
       </div>
     </motion.header>

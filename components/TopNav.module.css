@@ -202,3 +202,19 @@
   background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
 }
 .askAi:hover { background: #0070d9; }
+
+.contextTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-light);
+  margin-right: 12px;
+}
