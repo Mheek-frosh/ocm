@@ -19,6 +19,10 @@ export default function TopNav() {
     searchPlaceholder = 'Search Cost Codes...';
   } else if (pathname?.startsWith('/dashboard/clients')) {
     searchPlaceholder = 'Search Clients...';
+  } else if (pathname?.startsWith('/dashboard/health')) {
+    searchPlaceholder = 'Search Levers & Projections...';
+  } else if (pathname?.startsWith('/dashboard/knowledge')) {
+    searchPlaceholder = 'Search Insights & Archive...';
   }
 
   const notifications = [
