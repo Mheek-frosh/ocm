@@ -74,6 +74,24 @@ function useCount(target, duration = 1200) {
   return target < 0 ? -val : val;
 }
 
+function CustomChartTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className={styles.tooltip}>
+      <p className={styles.tooltipLabel}>{label}</p>
+      {payload.map(p => (
+        <div key={p.dataKey} className={styles.tooltipRow}>
+          <span className={styles.tooltipDot} style={{ background: p.color }} />
+          <span style={{ color: 'var(--text-secondary)' }}>{p.name}:</span>
+          <span style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
+            ${p.value}M
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function CostControlPage() {
   const [selectedRisk, setSelectedRisk] = useState(null);
   const [riskFlags, setRiskFlags] = useState(initialRiskFlags);
@@ -92,25 +110,6 @@ export default function CostControlPage() {
       alert(`Escalated flag ${riskId} to executive committee.`);
     }
     setSelectedRisk(null);
-  }
-
-  // Custom tooltips for Chart
-  function CustomChartTooltip({ active, payload, label }) {
-    if (!active || !payload?.length) return null;
-    return (
-      <div className={styles.tooltip}>
-        <p className={styles.tooltipLabel}>{label}</p>
-        {payload.map(p => (
-          <div key={p.dataKey} className={styles.tooltipRow}>
-            <span className={styles.tooltipDot} style={{ background: p.color }} />
-            <span style={{ color: 'var(--text-secondary)' }}>{p.name}:</span>
-            <span style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
-              ${p.value}M
-            </span>
-          </div>
-        ))}
-      </div>
-    );
   }
 
   return (

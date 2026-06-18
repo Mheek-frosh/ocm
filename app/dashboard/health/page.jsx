@@ -20,6 +20,29 @@ const baselineData = [
   { week: 'Wk 14', Current: 3 },
 ];
 
+function CustomChartTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className={styles.tooltip}>
+      <div className={styles.tooltipTitle}>{label}</div>
+      <div className={styles.tooltipRow}>
+        <span className={styles.tooltipLabel}>Current Path:</span>
+        <span className={styles.tooltipVal} style={{ color: '#f43f5e' }}>
+          {payload[0]?.value} Days
+        </span>
+      </div>
+      {payload[1] && (
+        <div className={styles.tooltipRow}>
+          <span className={styles.tooltipLabel}>Simulated:</span>
+          <span className={styles.tooltipVal} style={{ color: 'var(--blue)' }}>
+            {payload[1]?.value} Days
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ProjectHealthPage() {
   const [overtime, setOvertime] = useState(15); // slider 0% to 50%
   const [reallocation, setReallocation] = useState('High'); // Low, High, Critical
@@ -75,30 +98,6 @@ export default function ProjectHealthPage() {
 
   function handleApply() {
     alert(`Applied scenario: ${daysRecovered} days recovered. Current Penalty Impact projection: $${penaltyImpact.toFixed(1)}M.`);
-  }
-
-  // Custom tooltips
-  function CustomChartTooltip({ active, payload, label }) {
-    if (!active || !payload?.length) return null;
-    return (
-      <div className={styles.tooltip}>
-        <div className={styles.tooltipTitle}>{label}</div>
-        <div className={styles.tooltipRow}>
-          <span className={styles.tooltipLabel}>Current Path:</span>
-          <span className={styles.tooltipVal} style={{ color: '#f43f5e' }}>
-            {payload[0]?.value} Days
-          </span>
-        </div>
-        {payload[1] && (
-          <div className={styles.tooltipRow}>
-            <span className={styles.tooltipLabel}>Simulated:</span>
-            <span className={styles.tooltipVal} style={{ color: 'var(--blue)' }}>
-              {payload[1]?.value} Days
-            </span>
-          </div>
-        )}
-      </div>
-    );
   }
 
   return (

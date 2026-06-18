@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Optima Construct — Construction Intelligence',
-  description: 'AI-powered construction intelligence platform for executive decision making.',
+  title: 'Optima Construct — Decision Platform for Construction Leaders',
+  description: 'Optima Construct helps construction leaders protect margins, reduce risk, and improve delivery outcomes across their portfolio.',
 };
 
 export default function RootLayout({ children }) {

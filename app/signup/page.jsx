@@ -157,7 +157,7 @@ export default function SignUpPage() {
         </motion.div>
 
         <motion.div custom={7} variants={fieldVariants} initial="hidden" animate="visible">
-          <Link href="/signin" className={styles.secondaryBtn}>Sign in instead</Link>
+          <Link href="/login" className={styles.secondaryBtn}>Sign in instead</Link>
         </motion.div>
       </form>
     </AuthLayout>
